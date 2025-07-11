@@ -6,6 +6,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link, useNavigate } from 'react-router-dom';
 import logo from 'assets/logo.png';
+import logoWhite from 'assets/logo-white.png';
 import {
   Drawer,
   List,
@@ -17,13 +18,17 @@ import {
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import { Icon } from '@iconify/react';
-import DarkModeIcon from '@mui/icons-material/DarkMode';
+import { Mode } from 'components/App';
 
 interface NavbarProps {
-  onSwitchTheme: () => void;
+  mode: Mode;
+  onChangeMode: () => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ onSwitchTheme }) => {
+const Navbar: React.FC<NavbarProps> = ({
+  mode,
+  onChangeMode: onChangeMode
+}) => {
   const navigate = useNavigate();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
@@ -37,7 +42,49 @@ const Navbar: React.FC<NavbarProps> = ({ onSwitchTheme }) => {
   ];
 
   const buttons: ReactNode[] = [
-    <DarkModeIcon onClick={onSwitchTheme} style={{ cursor: 'pointer' }} />
+    <Icon
+      key={mode}
+      onClick={onChangeMode}
+      style={{ cursor: 'pointer' }}
+      fontSize={30}
+      icon={
+        mode === 'dark'
+          ? 'ic:round-dark-mode'
+          : mode === 'light'
+            ? 'ic:round-light-mode'
+            : 'ic:round-contrast'
+      }
+    />,
+    <Icon
+      onClick={() => window.open('https://discord.gg/SDbbn3hT4b', '_blank')}
+      style={{ cursor: 'pointer' }}
+      fontSize={30}
+      icon={'ic:baseline-discord'}
+    />,
+    <iframe
+      src="https://ghbtns.com/github-btn.html?user=iib0011&repo=omni-tools&type=star&count=true&size=large"
+      frameBorder="0"
+      scrolling="0"
+      width="150"
+      height="30"
+      title="GitHub"
+    ></iframe>,
+    <Button
+      onClick={() => {
+        window.open('https://buymeacoffee.com/iib0011', '_blank');
+      }}
+      sx={{ borderRadius: '100px' }}
+      variant={'contained'}
+      startIcon={
+        <Icon
+          style={{ cursor: 'pointer' }}
+          fontSize={25}
+          icon={'mdi:heart-outline'}
+        />
+      }
+    >
+      Buy me a coffee
+    </Button>
   ];
   const drawerList = (
     <List>
@@ -61,17 +108,22 @@ const Navbar: React.FC<NavbarProps> = ({ onSwitchTheme }) => {
       sx={{
         background: 'transparent',
         boxShadow: 'none',
-        color: 'text.primary'
+        color: 'text.primary',
+        pt: 2
       }}
     >
       <Toolbar
         sx={{
           justifyContent: 'space-between',
-          alignItems: 'center'
+          alignItems: 'center',
+          mx: { md: '50px', lg: '150px' }
         }}
       >
         <Link to="/">
-          <img src={logo} width={isMobile ? '80px' : '150px'} />
+          <img
+            src={theme.palette.mode === 'light' ? logo : logoWhite}
+            width={isMobile ? '120px' : '200px'}
+          />
         </Link>
         {isMobile ? (
           <>

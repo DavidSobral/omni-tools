@@ -1,10 +1,17 @@
-import { Box, Divider, Stack, TextField, useTheme } from '@mui/material';
+import {
+  Box,
+  Divider,
+  Stack,
+  TextField,
+  styled,
+  useTheme
+} from '@mui/material';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { filterTools, getToolsByCategory } from '../../tools';
 import Hero from 'components/Hero';
-import { capitalizeFirstLetter } from '@utils/string';
+import { capitalizeFirstLetter, getToolCategoryTitle } from '@utils/string';
 import { Icon } from '@iconify/react';
 import { categoriesColors } from 'config/uiConfig';
 import React, { useEffect } from 'react';
@@ -13,13 +20,20 @@ import { ArrowBack } from '@mui/icons-material';
 import BackButton from '@components/BackButton';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import SearchIcon from '@mui/icons-material/Search';
+import { Helmet } from 'react-helmet';
 
+const StyledLink = styled(Link)(({ theme }) => ({
+  '&:hover': {
+    color: theme.palette.mode === 'dark' ? 'white' : theme.palette.primary.light
+  }
+}));
 export default function ToolsByCategory() {
   const navigate = useNavigate();
   const theme = useTheme();
   const mainContentRef = React.useRef<HTMLDivElement>(null);
   const { categoryName } = useParams();
   const [searchTerm, setSearchTerm] = React.useState<string>('');
+  const rawTitle = getToolCategoryTitle(categoryName as string);
 
   useEffect(() => {
     if (mainContentRef.current) {
@@ -29,6 +43,9 @@ export default function ToolsByCategory() {
 
   return (
     <Box sx={{ backgroundColor: 'background.default' }}>
+      <Helmet>
+        <title>{`${rawTitle} Tools`}</title>
+      </Helmet>
       <Box
         padding={{ xs: 1, md: 3, lg: 5 }}
         display={'flex'}
@@ -49,11 +66,7 @@ export default function ToolsByCategory() {
             <Typography
               fontSize={22}
               color={theme.palette.primary.main}
-            >{`All ${
-              getToolsByCategory().find(
-                (category) => category.type === categoryName
-              )!.rawTitle
-            } Tools`}</Typography>
+            >{`All ${rawTitle} Tools`}</Typography>
           </Stack>
           <TextField
             placeholder={'Search'}
@@ -101,14 +114,14 @@ export default function ToolsByCategory() {
                   color={categoriesColors[index % categoriesColors.length]}
                 />
                 <Box>
-                  <Link
+                  <StyledLink
                     style={{
                       fontSize: 20
                     }}
                     to={'/' + tool.path}
                   >
                     {tool.name}
-                  </Link>
+                  </StyledLink>
                   <Typography sx={{ mt: 2 }}>
                     {tool.shortDescription}
                   </Typography>
