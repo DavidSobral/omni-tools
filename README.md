@@ -1,3 +1,70 @@
+Welcome to OmniTools, a self-hosted web app offering a variety of online tools to simplify everyday tasks.
+Whether you are coding, manipulating images/videos, PDFs or crunching numbers, OmniTools has you covered. Please don't
+forget to
+star the repo to support us.
+Here is the [demo](https://omnitools.app) website.
+
+All files are processed entirely on the client side: nothing ever leaves your device.
+Plus, the Docker image is super lightweight at just 28MB, making it fast to deploy and easy to self-host.
+
+![img.png](img.png)
+
+## Table of Contents
+
+- [Features](#features)
+- [Self-host](#self-hostrun)
+- [Contribute](#contribute)
+- [License](#license)
+- [Contact](#contact)
+
+## Features
+
+We strive to offer a variety of tools, including:
+
+## **Image/Video/Audio Tools**
+
+- Image Resizer
+- Image Converter
+- Image Editor
+- Video Trimmer
+- Video Reverser
+- And more...
+
+## **PDF Tools**
+
+- PDF Splitter
+- PDF Merger
+- PDF Editor
+- And more...
+
+## **Text/List Tools**
+
+- Case Converters
+- List Shuffler
+- Text Formatters
+- And more...
+
+## **Date and Time Tools**
+
+- Date Calculators
+- Time Zone Converters
+- And more...
+
+## **Math Tools**
+
+- Generate Prime Numbers
+- Calculate voltage, current, or resistance
+- And more...
+
+## **Data Tools**
+
+- JSON Tools
+- CSV Tools
+- XML Tools
+- And more...
+
+Stay tuned as we continue to expand and improve our collection!
+
 ## Self-host/Run
 
 ### Docker
@@ -53,6 +120,30 @@ npm run test
 ```bash
 npm run test:e2e
 ```
+
+<img src="https://api.star-history.com/svg?repos=iib0011/omni-tools&type=Date"/>
+
+## 🤝 Looking to contribute?
+
+We welcome contributions! You can help by:
+
+- ✅ Reporting bugs
+- ✅ Suggesting new features in GitHub issues or [here](https://tally.so/r/nrkkx2)
+- ✅ Improving documentation
+- ✅ Submitting pull requests
+
+You can also join our [Discord server](https://discord.gg/SDbbn3hT4b)
+
+### Contributors
+
+<a href="https://github.com/iib0011/omni-tools/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=iib0011/omni-tools" />
+</a>
+
+## Contact
+
+For any questions or suggestions, feel free to open an issue or contact me at:
+[ibracool99@gmail.com](mailto:ibracool99@gmail.com)
 
 ## License
 
