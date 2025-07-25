@@ -38,6 +38,7 @@
     "height": "Height",
     "inputTitle": "Input Video",
     "loadVideoForDimensions": "Load a video to see dimensions",
+    "longDescription": "This tool allows you to crop video files to remove unwanted areas or focus on specific parts of the video. Useful for removing black bars, adjusting aspect ratios, or focusing on important content. Supports various video formats including MP4, MOV, and AVI.",
     "resultTitle": "Cropped Video",
     "shortDescription": "Crop video to remove unwanted areas",
     "title": "Crop Video",
@@ -82,6 +83,12 @@
       "description": "This tool allows you to create a looping video by repeating the original video multiple times. You can specify how many times the video should loop.",
       "title": "What is a {{title}}?"
     }
+  },
+  "mergeVideo": {
+    "description": "Combine multiple video files into one continuous video.",
+    "longDescription": "This tool allows you to merge or append multiple video files into a single continuous video. Simply upload your video files, arrange them in the desired order, and merge them into one file for easy sharing or editing.",
+    "shortDescription": "Append and merge videos easily.",
+    "title": "Merge videos"
   },
   "rotate": {
     "180Degrees": "180° (Upside down)",
